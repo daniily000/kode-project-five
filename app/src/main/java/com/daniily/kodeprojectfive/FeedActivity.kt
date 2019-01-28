@@ -7,6 +7,7 @@ import com.daniily.kodeprojectfive.data.News
 import com.daniily.kodeprojectfive.data.Notification
 import com.daniily.kodeprojectfive.view.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_feed.*
 
 const val LOGOUT = 0x00000000
@@ -58,18 +59,21 @@ class FeedActivity : AppCompatActivity() {
                     addDelegate(newsDelegate)
                     addDelegate(notificationDelegate)
                 }
+                Picasso.get().load(R.mipmap.image_head1).into(image_head)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_news -> {
                 content_recycler_view.adapter = FeedViewAdapter(this, feedItems).apply {
                     addDelegate(newsDelegate)
                 }
+                Picasso.get().load(R.mipmap.image_head2).into(image_head)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
                 content_recycler_view.adapter = FeedViewAdapter(this, feedItems).apply {
                     addDelegate(notificationDelegate)
                 }
+                Picasso.get().load(R.mipmap.image_head3).into(image_head)
                 return@OnNavigationItemSelectedListener true
             }
         }

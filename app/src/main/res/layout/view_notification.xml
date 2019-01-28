@@ -17,7 +17,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/image_head" />
+        tools:src="@mipmap/image_head1" />
 
     <TextView
         android:id="@+id/title_notification"
