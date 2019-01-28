@@ -36,6 +36,15 @@ class ApplicationController : AppCompatActivity() {
                     else -> finish()
                 }
             }
+            FEED_REQUEST -> {
+                when (resultCode) {
+                    NO_LOGOUT -> finish()
+                    LOGOUT -> {
+                        loginController.performLogout()
+                        startLogin()
+                    }
+                }
+            }
             else -> finish()
         }
 

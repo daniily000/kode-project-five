@@ -31,7 +31,7 @@ class LoginOnSharedPrefsController(private val context: Context) : LoginControll
 
     init {
         loggedIn = storage.getBoolean(KEY_LOGGED_IN, false)
-        purge()
+//        purge()
         loadTestData()
     }
 
@@ -62,7 +62,7 @@ class LoginOnSharedPrefsController(private val context: Context) : LoginControll
     }
 
     override fun performLogout(callback: ((Int) -> Unit)?) {
-
+        storage.edit().putBoolean(KEY_LOGGED_IN, false).apply()
     }
 
     override fun isLoggedIn() = loggedIn

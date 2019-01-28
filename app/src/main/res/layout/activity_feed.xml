@@ -18,7 +18,7 @@
             android:elevation="8dp">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/feed_toolbar"
+                android:id="@+id/feed_collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -32,8 +32,17 @@
                     android:src="@mipmap/image_head" />
 
                 <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/feed_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize" />
+
+                <ImageView
+                    android:id="@+id/logout"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="right|bottom"
+                    android:src="@drawable/ic_logout"/>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 

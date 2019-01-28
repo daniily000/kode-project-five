@@ -9,6 +9,9 @@ import com.daniily.kodeprojectfive.view.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_feed.*
 
+const val LOGOUT = 0x00000000
+const val NO_LOGOUT = 0x00000001
+
 class FeedActivity : AppCompatActivity() {
 
     private lateinit var newsDelegate: NewsViewAdapterDelegate
@@ -76,7 +79,13 @@ class FeedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed)
+        setResult(NO_LOGOUT)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        logout.setOnClickListener {
+            setResult(LOGOUT)
+            finish()
+        }
 
         newsDelegate = NewsViewAdapterDelegate(this)
         notificationDelegate = NotificationViewAdapterDelegate(this)
@@ -88,4 +97,6 @@ class FeedActivity : AppCompatActivity() {
 
         content_recycler_view.layoutManager = LinearLayoutManager(this)
     }
+
+
 }
