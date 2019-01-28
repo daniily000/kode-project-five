@@ -14,6 +14,7 @@ class FeedViewAdapter(activity: Activity, private val items: List<FeedBase>)
 
     init {
         delegatesManager.addDelegate(NewsViewAdapterDelegate(activity))
+        delegatesManager.addDelegate(NotificationViewAdapterDelegate(activity))
     }
 
     override fun getItemViewType(position: Int): Int {

@@ -9,6 +9,7 @@ import com.daniily.kodeprojectfive.R
 import com.daniily.kodeprojectfive.data.FeedBase
 import com.daniily.kodeprojectfive.data.Notification
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_notification.view.*
 
 //
@@ -36,9 +37,8 @@ class NotificationViewAdapterDelegate(activity: Activity) : AdapterDelegate<List
         payloads: MutableList<Any>
     ) {
         val o = items[position]
-
         if (o is Notification) holder.itemView.apply {
-            image_notification.setImageResource(o.imageId)
+            Picasso.get().load(o.imageId).into(image_notification)
             title_notification.text = o.title
             content_notification.text = o.message
         }
