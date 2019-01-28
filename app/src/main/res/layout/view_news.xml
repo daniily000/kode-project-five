@@ -14,7 +14,7 @@
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/image_sample" />
+        tools:src="@mipmap/image_head" />
 
     <TextView
         android:id="@+id/title_news"
