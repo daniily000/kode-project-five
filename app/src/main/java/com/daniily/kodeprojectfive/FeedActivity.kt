@@ -22,7 +22,8 @@ class FeedActivity : AppCompatActivity() {
 
         News(
             "Looking Glass",
-            "Marcus entered the bright room of secured high-tech state-of-the-art skyscraper and finally got the desired laptop of !Nvite's CEO. ",
+            "Marcus entered the bright room of secured high-tech state-of-the-art skyscraper and finally got " +
+                    "the desired laptop of !Nvite's CEO. ",
             R.mipmap.image1
         ),
 

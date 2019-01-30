@@ -41,7 +41,6 @@ class NewsViewAdapterDelegate(activity: Activity) : AdapterDelegate<List<FeedBas
             Picasso.get().load(o.imageId).into(image_news)
             title_news.text = o.title
             content_news.text = o.content
-        } else {
         }
     }
 

@@ -36,22 +36,32 @@ class LoginActivity : AppCompatActivity() {
                                 finish()
                             }
                             else -> {
-                                Snackbar.make(login_coordinator_layout, "Login failed. Try again.", Snackbar.LENGTH_INDEFINITE).show()
+                                Snackbar.make(
+                                    login_coordinator_layout,
+                                    "Login failed. Try again.",
+                                    Snackbar.LENGTH_INDEFINITE).show()
                             }
                         }
                     }
                 }
 
                 FIELD_LOGIN_IS_EMPTY -> {
-                    Snackbar.make(login_coordinator_layout, "Login field is empty! Please fill it.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(
+                        login_coordinator_layout,
+                        "Login field is empty! Please fill it.",
+                        Snackbar.LENGTH_LONG).show()
                 }
 
                 FIELD_PSSWD_IS_EMPTY -> {
-                    Snackbar.make(login_coordinator_layout, "Password field is empty! Please fill it.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(login_coordinator_layout,
+                        "Password field is empty! Please fill it.",
+                        Snackbar.LENGTH_LONG).show()
                 }
 
                 FIELD_BOTH_ARE_EMPTY -> {
-                    Snackbar.make(login_coordinator_layout, "Login and password fields are empty! Please fill it.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(login_coordinator_layout,
+                        "Login and password fields are empty! Please fill it.",
+                        Snackbar.LENGTH_LONG).show()
                 }
             }
         }
