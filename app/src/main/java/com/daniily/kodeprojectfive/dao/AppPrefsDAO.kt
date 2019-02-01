@@ -50,24 +50,22 @@ class AppPrefsDAO(context: Context) : AppDAO {
 
         val json = JSONObject()
 
-        when (o.javaClass) {
+        when (o) {
 
-            News::class.java -> {
+            is News-> {
 
-                val news = o as News
                 json.put(CLASS, CLASS_NEWS)
-                json.put(NEWS_TITLE, news.title)
-                json.put(NEWS_CONTENT, news.content)
-                json.put(NEWS_IMAGE_ID, news.imageId)
+                json.put(NEWS_TITLE, o.title)
+                json.put(NEWS_CONTENT, o.content)
+                json.put(NEWS_IMAGE_ID, o.imageId)
             }
 
-            Notification::class.java -> {
+            is Notification -> {
 
-                val notification = o as Notification
                 json.put(CLASS, CLASS_NOTIFICATION)
-                json.put(NOTIFICATION_TITLE, notification.title)
-                json.put(NOTIFICATION_MESSAGE, notification.message)
-                json.put(NOTIFICATION_IMAGE_ID, notification.imageId)
+                json.put(NOTIFICATION_TITLE, o.title)
+                json.put(NOTIFICATION_MESSAGE, o.message)
+                json.put(NOTIFICATION_IMAGE_ID, o.imageId)
             }
         }
 
