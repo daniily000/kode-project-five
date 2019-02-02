@@ -4,7 +4,7 @@ import com.daniily.kodeprojectfive.data.FeedBase
 
 interface AppDAO {
 
-    fun getFeedObjects(): List<FeedBase>
+    fun getFeedObjects(): MutableList<FeedBase>
 
     fun saveFeedObjects(list: List<FeedBase>)
 

@@ -1,6 +1,8 @@
 package com.daniily.kodeprojectfive
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daniily.kodeprojectfive.dao.AppDAO
@@ -20,7 +22,7 @@ class FeedActivity : AppCompatActivity() {
     private lateinit var notificationDelegate: NotificationViewAdapterDelegate
 
     private lateinit var appDAO: AppDAO
-    private lateinit var feedItems: List<FeedBase>
+    private lateinit var feedItems: MutableList<FeedBase>
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -57,7 +59,7 @@ class FeedActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         appDAO = AppPrefsDAO(this)
-        feedItems = appDAO.getFeedObjects()
+        feedItems = ArrayList<FeedBase>().apply { addAll(appDAO.getFeedObjects()) }
 
         logout.setOnClickListener {
             setResult(LOGOUT)
@@ -73,7 +75,24 @@ class FeedActivity : AppCompatActivity() {
         }
 
         content_recycler_view.layoutManager = LinearLayoutManager(this)
+
+        action_add.setOnClickListener(this::addFeedBase)
     }
+
+    override fun onResume() {
+        super.onResume()
+        feedItems.apply {
+            clear()
+            addAll(appDAO.getFeedObjects())
+        }
+        content_recycler_view.adapter?.notifyDataSetChanged()
+    }
+
+    private fun addFeedBase(v: View) {
+        startActivity(Intent(this, NewNoteActivity::class.java))
+    }
+
+
 
 
 }

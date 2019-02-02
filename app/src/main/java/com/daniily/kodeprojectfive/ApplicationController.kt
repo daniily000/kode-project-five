@@ -3,6 +3,8 @@ package com.daniily.kodeprojectfive
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.daniily.kodeprojectfive.dao.AppDAO
+import com.daniily.kodeprojectfive.dao.AppPrefsDAO
 import com.daniily.kodeprojectfive.user.LoginController
 import com.daniily.kodeprojectfive.user.LoginOnSharedPrefsController
 
@@ -11,6 +13,7 @@ private const val LOGIN_REQUEST = 0x00000000
 private const val FEED_REQUEST = 0x00000001
 
 lateinit var loginController: LoginController
+lateinit var appDAO: AppDAO
 
 class ApplicationController : AppCompatActivity() {
 
@@ -18,6 +21,7 @@ class ApplicationController : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         loginController = LoginOnSharedPrefsController(this)
+        appDAO = AppPrefsDAO(this)
 
         if (!loginController.isLoggedIn()) {
             startLogin()

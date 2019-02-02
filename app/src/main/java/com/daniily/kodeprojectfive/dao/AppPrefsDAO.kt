@@ -27,7 +27,7 @@ class AppPrefsDAO(context: Context) : AppDAO {
 
     private val storage = context.getSharedPreferences(STORAGE_NAME, Context.MODE_PRIVATE)
 
-    override fun getFeedObjects(): List<FeedBase> =
+    override fun getFeedObjects(): MutableList<FeedBase> =
         jsonToFeedObjects(
             JSONArray(storage.getString(FEED_LIST, EMPTY_JSON_ARRAY))
         )
@@ -75,7 +75,7 @@ class AppPrefsDAO(context: Context) : AppDAO {
             null
     }
 
-    fun jsonToFeedObjects(json: JSONArray): List<FeedBase> {
+    fun jsonToFeedObjects(json: JSONArray): MutableList<FeedBase> {
 
         val list = ArrayList<FeedBase>()
 
